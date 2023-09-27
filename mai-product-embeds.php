@@ -155,6 +155,9 @@ final class Mai_Product_Embeds_Plugin {
 		// Setup the updater.
 		$updater = PucFactory::buildUpdateChecker( 'https://github.com/maithemewp/mai-product-embeds/', __FILE__, 'mai-product-embeds' );
 
+		// Set the branch that contains the stable release.
+		$updater->setBranch( 'main' );
+
 		// Maybe set github api token.
 		if ( defined( 'MAI_GITHUB_API_TOKEN' ) ) {
 			$updater->setAuthentication( MAI_GITHUB_API_TOKEN );
