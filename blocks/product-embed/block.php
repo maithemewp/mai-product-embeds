@@ -58,15 +58,12 @@ class Mai_Product_Embed_Block {
 			return;
 		}
 
-		// Get post.
-		$post = get_post( $id );
-
-		// Bail if no post or content.
-		if ( ! $post || empty( $post->post_content ) ) {
-			return;
+		// If Mai Theme v2.
+		if ( function_exists( 'mai_get_processed_content' ) ) {
+			echo mai_get_processed_content( get_post_field( 'post_content', $id ) );
+		} else {
+			echo do_blocks( $post->post_content );
 		}
-
-		echo do_blocks( $post->post_content );
 	}
 
 	/**
