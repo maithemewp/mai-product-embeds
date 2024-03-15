@@ -116,8 +116,15 @@ final class Mai_Product_Embeds_Plugin {
 	private function includes() {
 		// Include vendor libraries.
 		require_once __DIR__ . '/vendor/autoload.php';
+
 		// Includes.
 		// foreach ( glob( MAI_PRODUCT_EMBEDS_DIR . 'includes/*.php' ) as $file ) { include $file; }
+
+		// Blocks.
+		include MAI_PRODUCT_EMBEDS_DIR . 'blocks/product-embed/block.php';
+
+		// Instantiate classes.
+		new Mai_Product_Embed_Block;
 	}
 
 	/**
@@ -214,9 +221,21 @@ final class Mai_Product_Embeds_Plugin {
 			'show_ui'            => true,
 			'rewrite'            => false,
 			'supports'           => [ 'title', 'editor' ],
-			'template_lock'      => 'all',
+			// 'template_lock'      => 'all',
 			'template'           => [
-				[ 'core/html', [] ],
+				[ 'core/paragraph', [
+					'placeholder' => 'Add Description...',
+					'lock'        => [
+						'move'   => true,
+						'remove' => true,
+					],
+				] ],
+				[ 'core/html', [
+					'lock' => [
+						'move'   => false,
+						'remove' => false,
+					],
+				] ],
 			],
 		] );
 
