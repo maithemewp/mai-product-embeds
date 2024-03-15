@@ -2,6 +2,7 @@
 	"name": "acf/mai-product-embed",
 	"title": "Mai Product Embed",
 	"description": "Add an embed to a post.",
+	"icon": "html",
 	"category": "widgets",
 	"keywords":[ "embed", "product", "amazon" ],
 	"textdomain": "mai-product-embeds",
