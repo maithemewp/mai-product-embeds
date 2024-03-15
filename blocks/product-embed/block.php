@@ -62,8 +62,39 @@ class Mai_Product_Embed_Block {
 		if ( function_exists( 'mai_get_processed_content' ) ) {
 			echo mai_get_processed_content( get_post_field( 'post_content', $id ) );
 		} else {
-			echo do_blocks( $post->post_content );
+			echo $this->get_processed_content( $post->post_content );
 		}
+	}
+
+	/**
+	 * Get processed content.
+	 *
+	 * @since TBD
+	 *
+	 * @param string $content The content to process.
+	 *
+	 * @return string
+	 */
+	function get_processed_content( $content ) {
+		/**
+		 * Embed.
+		 *
+		 * @var WP_Embed $wp_embed Embed object.
+		 */
+		global $wp_embed;
+
+		$blocks  = has_blocks( $content );
+		$content = $wp_embed->autoembed( $content );           // WP runs priority 8.
+		$content = $wp_embed->run_shortcode( $content );       // WP runs priority 8.
+		$content = $blocks ? do_blocks( $content ) : $content; // WP runs priority 9.
+		$content = wptexturize( $content );                    // WP runs priority 10.
+		$content = ! $blocks ? wpautop( $content ) : $content; // WP runs priority 10.
+		$content = shortcode_unautop( $content );              // WP runs priority 10.
+		$content = function_exists( 'wp_filter_content_tags' ) ? wp_filter_content_tags( $content ) : wp_make_content_images_responsive( $content ); // WP runs priority 10. WP 5.5 with fallback.
+		$content = do_shortcode( $content );                   // WP runs priority 11.
+		$content = convert_smilies( $content );                // WP runs priority 20.
+
+		return $content;
 	}
 
 	/**
