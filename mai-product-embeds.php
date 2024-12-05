@@ -4,7 +4,7 @@
  * Plugin Name:     Mai Product Embeds
  * Plugin URI:      https://bizbudding.com
  * Description:     Easily embed Amazon (and more) products into your posts with Mai Post Grid.
- * Version:         0.1.1
+ * Version:         0.1.2
  *
  * Author:          BizBudding
  * Author URI:      https://bizbudding.com
@@ -92,7 +92,7 @@ final class Mai_Product_Embeds_Plugin {
 	private function setup_constants() {
 		// Plugin version.
 		if ( ! defined( 'MAI_PRODUCT_EMBEDS_VERSION' ) ) {
-			define( 'MAI_PRODUCT_EMBEDS_VERSION', '0.1.1' );
+			define( 'MAI_PRODUCT_EMBEDS_VERSION', '0.1.2' );
 		}
 
 		// Plugin Folder Path.
