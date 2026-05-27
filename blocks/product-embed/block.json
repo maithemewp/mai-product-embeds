@@ -1,4 +1,5 @@
 {
+	"apiVersion": 3,
 	"name": "acf/mai-product-embed",
 	"title": "Mai Product Embed",
 	"description": "Add an embed to a post.",
