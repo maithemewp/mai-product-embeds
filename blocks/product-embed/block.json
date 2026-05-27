@@ -9,7 +9,7 @@
 	"style": "",
 	"script": "",
 	"acf": {
-	  "mode": "preview"
+	  "blockVersion": 3
 	},
 	"supports": {
 	  "align": false,
