@@ -5,6 +5,7 @@
  * Plugin URI:      https://bizbudding.com
  * Description:     Easily embed Amazon (and more) products into your posts with Mai Post Grid.
  * Version:         0.1.4
+ * Requires PHP:    8.1
  *
  * Author:          BizBudding
  * Author URI:      https://bizbudding.com
